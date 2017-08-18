@@ -90,8 +90,8 @@ def typeform():
 def static_from_root():
     # Edge case to disallow staging env indexing
     if os.getenv('STAGING') and request.path[1:] == 'robots.txt':
-      print(request.path, os.getenv('STAGING')
-      return send_from_directory(app.static_folder, 'robots_staging.txt')
+        print(request.path, os.getenv('STAGING'))
+        return send_from_directory(app.static_folder, 'robots_staging.txt')
     return send_from_directory(app.static_folder, request.path[1:])
 
 
