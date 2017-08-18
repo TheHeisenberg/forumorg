@@ -88,10 +88,9 @@ def typeform():
 @app.route('/robots.txt')
 @app.route('/favicon.ico')
 def static_from_root():
-    # Edge case to disallow staging env indexing
-    if os.getenv('STAGING') and request.path[1:] == 'robots.txt':
-        print(request.path, os.getenv('STAGING'))
-        return send_from_directory(app.static_folder, 'robots_staging.txt')
+    # Edge case to disallow indexing for heroku apps
+    if 'heroku' in request.url:
+        return send_from_directory(app.static_folder, 'robots_disallow.txt')
     return send_from_directory(app.static_folder, request.path[1:])
 
 
