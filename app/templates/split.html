@@ -1,9 +1,12 @@
 {% extends 'base_all.html' %}
+
 {% set title = 'Accueil' %}
+
 {% block css_files %}
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home/typography/typography-1.css') }}"></link>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='build/split.min.css') }}"></link>
 {% endblock css_files %}
+
 {% block body %}
   <body class="home page page-id-5 page-parent page-template-default not-mobile" cz-shortcut-listen="true">
     <div id="header">
@@ -44,6 +47,7 @@
     </div>
   </body>
 {% endblock body %}
+
 {% block scripts %}
   <script>
     $('[class^=title]').on('touchstart', function () {

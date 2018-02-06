@@ -1,0 +1,4 @@
+/app/templates/users/dashboard/section.html :
+{{ section_block('master_class', 'fa fa-graduation-cap')}}
+{{ section_block('styf', 'fa fa-lightbulb-o')}}
+{{ section_block('joi', 'fa fa-book')}} 

@@ -15,9 +15,9 @@
     <li class="{{ 'active' if request.path == url_for('users.dashboard', page=name) else '' }}">
       {% if name != 'styf' and name != 'joi' and name != 'master_class' %}
         <a href="{{ url_for('users.dashboard', page=name) }}">
-        {% else %}
+      {% else %}
           <a href="#">
-          {% endif %}
+      {% endif %}
           <i class="{{ icon }}"></i>
           <span>
             {% if name == 'joi' %}
@@ -47,6 +47,7 @@
       </li>
     {% endif %}
   {%- endmacro %}
+
   {% macro header_section(name) -%}
     <div class="box-header with-border">
       <h3 class="box-title">{{ name }}</h3>
@@ -57,6 +58,7 @@
       </div>
     </div>
   {%- endmacro %}
+
   {% block sections %}
     {{ section_block('accueil', 'fa fa-home')}}
     {{ section_block('profile', 'fa fa-user-circle-o')}}
@@ -77,7 +79,5 @@
         {% endif %}
       </ul>
     </li>
-    {{ section_block('master_class', 'fa fa-graduation-cap')}}
-    {{ section_block('styf', 'fa fa-lightbulb-o')}}
-    {{ section_block('joi', 'fa fa-book')}}
-  {% endblock sections %}
+    <!--sections master_class, styf, joi deleted from here-->
+  {% endblock sections %} 
