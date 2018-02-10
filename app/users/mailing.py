@@ -1,18 +1,19 @@
 import os
 
 import sendgrid
+
 from sendgrid.helpers.mail import Email, Mail, Personalization, Substitution
 
-
-def send_mail(recipient, confirm_url):
+#can be used for signup and password reset. uses the signup template by default
+def send_mail(recipient, confirm_url,template_id='494a8322-4f93-4a71-b8e1-6afb8dfa6ba6'):
     # Create a text/plain message
     me = 'no-reply@forumorg.org'
     subject = 'Bienvenue à Forum Organisation!'
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
     # Creating mail
     mail = Mail()
-    mail.set_from(Email(me))
-    mail.set_template_id('494a8322-4f93-4a71-b8e1-6afb8dfa6ba6')
+    mail.from_email = Email(me)
+    mail.template_id = template_id
     personalization = Personalization()
     personalization.add_to(Email(recipient))
     mail.add_personalization(personalization)

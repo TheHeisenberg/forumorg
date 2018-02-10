@@ -26,6 +26,7 @@ class User(flask_login.UserMixin):
             return self.data[item]
         except KeyError:
             raise AttributeError(item)
+    
 
 
 class Company(flask_login.UserMixin):
