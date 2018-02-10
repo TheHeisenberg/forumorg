@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- TITLE OF SITE -->
+    <title>{{ title }}
+      - Forum Organisation</title>
+    <!-- META DATA -->
+    <meta name="description" content="Forum Organisation est une association étudiante qui a pour but de générer le contact entre les étudiants et les entreprises.">
+    <meta
+      name="keywords"
+      content="forum rhône alpes, forum rhone alpes, forum recrutement, salon recrutement, forum recrutement élèves ingénieurs, forum recrutement étudiants, forum recrutement eleves ingenieurs, forum recrutement etudiants, forum emploi, forum stage, salon emploi, salon recrutement élèves ingénieurs, salon recrutement étudiants, salon recrutement eleves ingenieurs, salon recrutement etudiants, salon rhone alpes, recrutement ingénieurs, carrefour européen, carrefour europeen, carrefour maghrébin, carrefour maghrebin, emploi étudiant, emploi ingénieurs, emploi rhone alpes, ingénieur, salon stage, stage ingénieurs, stage rhone alpes, stage, recrutement, emploi">
+    <meta name="author" content="ForumOrganisation">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- FAVICON -->
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- CSS FILES -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='build/common.min.css') }}"></link>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+    <!-- CUSTOM CSS FILES -->
+    {% block css_files %}{% endblock css_files %}
+    <!-- CUSTOM CSS STYLE -->
+    {% block style %}{% endblock style %}
+  </head>
+  <!-- BODY -->
+  <body class="{{ body_class }}">
+    {% block body %}{% endblock body %}
+    <!-- JS FILES -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- CUSTOM JS FILES -->
+    {% block js_files %}{% endblock js_files %}
+    <!-- CUSTOM JS SCRIPTS -->
+    {% block scripts %}{% endblock scripts %}
+    <!-- GOOGLE ANALYTICS -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        },
+        i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-96347892-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </html>

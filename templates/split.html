@@ -1,0 +1,72 @@
+{% extends 'base_all.html' %}
+
+{% set title = 'Accueil' %}
+
+{% block css_files %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home/typography/typography-1.css') }}"></link>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='build/split.min.css') }}"></link>
+{% endblock css_files %}
+
+{% block body %}
+  <body class="home page page-id-5 page-parent page-template-default not-mobile" cz-shortcut-listen="true">
+    <div id="header">
+      <div id="tagline">
+        <p>{{ _("Depuis 32 ans, notre objectif est de générer du contact entre les étudiants et les entreprises.") }}</p>
+      </div>
+    </div>
+    <div id="content" class="home" style="height: 918px;">
+      <div class="text">
+        <a class="logo logo-big" href="{{ url_for('main.index') }}">
+          <img class="svg " src="{{ url_for('static', filename='images/logo-home.png') }}" alt="Forum Organisation">
+        </a>
+        <div class="entry">
+          <p>{{ _("Depuis 32 ans, notre objectif est de générer du contact entre les étudiants et les entreprises.") }}</p>
+        </div>
+      </div>
+      <div class="section section-branded">
+        <video src="{{ url_for('static', filename='video/video.mp4') }}" autoplay="" muted="true" loop=""></video>
+        <h3 class="title title-branded">
+          <span class="play">{{ _("je suis") }}</span>
+          <span class="open-player">{{ _("recruteur") }}</span>
+          <span class="reel"></span>
+        </h3>
+        <div class="overlay" style="background-image: linear-gradient(to bottom right, rgba(40, 40, 40, 0.75), rgba(0, 192, 243, 0.2));"></div>
+      </div>
+      <div class="section section-originals">
+        <video src="{{ url_for('static', filename='video/video2.mp4') }}" autoplay="" muted="true" loop=""></video>
+        <h3 class="title title-originals">
+          <span class="play">{{ _("je suis") }}</span>
+          <span class="open-player">{{ _("candidat") }}</span>
+          <span class="reel"></span>
+        </h3>
+        <div class="overlay" style="background-image: linear-gradient(to bottom right, rgba(40, 40, 40, 0.75), rgba(150, 189, 61, 0.2));"></div>
+      </div>
+    </div>
+    <div id="footer">
+      <span>{{ _("Fondée en 1986 à Lyon, France") }}</span>
+    </div>
+  </body>
+{% endblock body %}
+
+{% block scripts %}
+  <script>
+    $('[class^=title]').on('touchstart', function () {
+      detectTap = true; //detects all touch events
+    });
+    $('[class^=title]').on('touchmove', function () {
+      detectTap = false; //Excludes the scroll events from touch events
+    });
+    $('[class^=title]').on('click touchend', function (event) {
+      if (event.type == "click")
+        detectTap = true; //detects click events
+      if (detectTap) {
+        var key = event.currentTarget.className.indexOf('branded');
+        if (key == -1) {
+          window.location.assign("{{ url_for('users.index') }}");
+        } else {
+          window.location.assign("{{ url_for('companies.index') }}");
+        }
+      }
+    });
+  </script>
+{% endblock scripts %}
